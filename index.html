@@ -18,7 +18,7 @@
         <p>State: <input type="text" name="state" size="30"></p>
         <p>Zip: <input type="number" name="zip" size="30"></p>
         
-        <table name="table" border="1" cellpadding="5">
+        <table id ="table" name="table" border="1" cellpadding="5">
             <tr>
                 <th>#</th>
                 <th>Service</th>
@@ -30,22 +30,21 @@
             </tr> 
             <tr>
                 <td>1</td>
-                <td><input type="text" placeholder="empty"></td>
-                <td><input type="text" placeholder="empty"></td>
-                <td><input type="text" placeholder="optional"></td>
+                <td><input type="text" name="row" value="" placeholder="empty"></td>
+                <td><input type="text" name="row" value="" placeholder="empty"></td>
+                <td><input type="text" name="row" value="" placeholder="optional"></td>
                 <td>
-                    $<input type="number" placeholder="0.00">
-                    <input type="text" placeholder="Unit">
+                    $<input type="number" name="row" value="" placeholder="0.00">
+                    <input type="text" name="row" value="" placeholder="Unit">
                 </td>
-                <td><input type="number" placeholder="0"></td>
-                <td>$<input type="number" placeholder="0.00"></td>
+                <td><input type="number" name="row" value="" placeholder="0"></td>
+                <td>$<input type="number" name="row" value="" placeholder="0.00"></td>
             </tr>
         </table>
-
-        <input type="button" value="Add">
    
         <p><input type="button" value="Download PDF">
         </p>
     </form>
+    <script src="index.js"></script>
 </body>
 </html>
