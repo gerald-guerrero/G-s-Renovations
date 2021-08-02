@@ -7,7 +7,7 @@ function setUp() {
 	recordForm();
 
 	if (Validate()){
-		AddRow();
+		AddRow(document.getElementById("table").rows.length);
 	}
 }
 
@@ -49,8 +49,14 @@ function AddRow() {
 	row.insertCell(5).innerHTML = '<input type="number" name ="row" value ="" placeholder="0">';		//Qty
 	row.insertCell(6).innerHTML = "$" +'<input type="number" name ="row" value ="" placeholder="0.00">';		// Price
 
-	var button = row.insertCell(7);
-	button.innerHTML = '<input type="button" value="delete" onclick=deleteRow(this)>'
+	var buttons = row.insertCell(7);
+	buttons.innerHTML = '<input type="button" value="delete" onclick=deleteRow(this)>' + '<p> \n' + '<input type="button" value="add" onclick=AddRow(this.parentNode.parentNode.parentNode.rowIndex)>';
+	recordForm();
+	reNumber();
+}
+
+function debug(rowNumber){
+	console.log(rowNumber);
 }
 
 function deleteRow(row){
