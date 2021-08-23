@@ -1,7 +1,9 @@
 var invoice;
 var invoiceValues;
+var table = document.getElementById("table");
 
 document.onkeyup = function(){setUp()};
+table.rows[1].insertCell(7).innerHTML = '<input type="button" value="add" onclick=AddRow(1)>';
 
 function setUp() {
 	recordForm();
@@ -38,7 +40,6 @@ function Validate() {
 }
 
 function AddRow(rowNumber) {
-	var table = document.getElementById("table");
 	var row = table.insertRow(rowNumber + 1);
 	row.insertCell(0).innerHTML = '<p name="rowNumber">' + rowNumber;
 	row.insertCell(1).innerHTML = '<input type="text" name ="row" value ="" placeholder="empty">';		// Service
