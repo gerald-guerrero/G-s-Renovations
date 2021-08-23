@@ -7,7 +7,7 @@ function setUp() {
 	recordForm();
 
 	if (Validate()){
-		AddRow(document.getElementById("table").rows.length);
+		AddRow(document.getElementById("table").rows.length - 1);
 	}
 }
 
@@ -15,7 +15,7 @@ function recordForm(){
 	invoice = new Array();
 	invoice = document.getElementsByName("row");
 	invoiceValues = new Array(invoice.length);
-	
+
 	var i = 0;
 	for (i = 0; i < invoice.length; i++){
 		invoiceValues[i] = invoice[i].value;
@@ -37,10 +37,9 @@ function Validate() {
 	return true;
 }
 
-function AddRow() {
+function AddRow(rowNumber) {
 	var table = document.getElementById("table");
-	var rowNumber = table.rows.length;
-	var row = table.insertRow(rowNumber);
+	var row = table.insertRow(rowNumber + 1);
 	row.insertCell(0).innerHTML = '<p name="rowNumber">' + rowNumber;
 	row.insertCell(1).innerHTML = '<input type="text" name ="row" value ="" placeholder="empty">';		// Service
 	row.insertCell(2).innerHTML = '<input type="text" name ="row" value ="" placeholder="empty">';		// Item
@@ -53,10 +52,6 @@ function AddRow() {
 	buttons.innerHTML = '<input type="button" value="delete" onclick=deleteRow(this)>' + '<p> \n' + '<input type="button" value="add" onclick=AddRow(this.parentNode.parentNode.parentNode.rowIndex)>';
 	recordForm();
 	reNumber();
-}
-
-function debug(rowNumber){
-	console.log(rowNumber);
 }
 
 function deleteRow(row){
